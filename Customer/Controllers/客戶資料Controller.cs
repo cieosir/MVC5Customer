@@ -23,6 +23,28 @@ namespace Customer.Controllers
                .ToList();
                return View(data);
         }
+        public ActionResult Index2()
+        {
+            var data = db.客戶資料
+                .Take(3)
+                .Select(p => new 客戶資料類別 {
+                    客戶名稱 = p.客戶名稱,
+                    統一編號 = p.統一編號,
+                    電話 = p.電話,
+                    傳真 = p.傳真,
+                    地址 = p.地址,
+                    Email = p.Email
+                });
+            return View(data);
+        }
+        public ActionResult Search()
+        {
+            var data = db.客戶資料
+                .Take(3)
+                .ToList();
+            return Search();
+
+        }
 
         // GET: 客戶資料/Details/5
         public ActionResult Details(int? id)
