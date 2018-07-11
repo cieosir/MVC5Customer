@@ -37,6 +37,37 @@ namespace Customer.Controllers
                 });
             return View(data);
         }
+        //public ActionResult 新增一筆資料()
+        //{
+        //    return View();
+        //}
+        public ActionResult 新增一筆資料(客戶資料類別 data)
+        {
+            if (!ModelState.IsValid)
+            {
+
+                return View();
+            }
+            var 客戶資料 = new 客戶資料()
+            {
+                客戶名稱 = data.客戶名稱,
+                統一編號 = data.統一編號,
+                電話 = data.電話,
+                傳真 = data.傳真,
+                地址 = data.地址,
+                Email = data.Email
+                //客戶名稱 = "花都豐田汽車",
+                //統一編號 = "23456789",
+                //電話 = "093456789",
+                //傳真 = "093456789",
+                //地址 = "花蓮市德安鄉100號",
+                //Email = "123@gmail.com"
+
+            };
+            this.db.客戶資料.Add(客戶資料);
+            this.db.SaveChanges();
+            return RedirectToAction("Index2");
+        }
         public ActionResult Search()
         {
             var data = db.客戶資料
