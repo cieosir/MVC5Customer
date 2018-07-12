@@ -11,21 +11,15 @@ namespace Customer.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class 客戶聯絡人
     {
         public int Id { get; set; }
         public int 客戶Id { get; set; }
-        [Required(ErrorMessage ="職稱必填")]
         public string 職稱 { get; set; }
-        [Required(ErrorMessage = "姓名必填")]
         public string 姓名 { get; set; }
-        [Required(ErrorMessage = "Email必填")]
         public string Email { get; set; }
-        [Required(ErrorMessage = "手機 必填")]
         public string 手機 { get; set; }
-        [Required(ErrorMessage = "電話必填")]
         public string 電話 { get; set; }
     
         public virtual 客戶資料 客戶資料 { get; set; }
