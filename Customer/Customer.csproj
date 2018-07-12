@@ -257,6 +257,7 @@
     <Content Include="Views\客戶銀行資訊\Index.cshtml" />
     <Content Include="Views\客戶資料\Index2.cshtml" />
     <Content Include="Views\客戶資料\新增一筆資料.cshtml" />
+    <Content Include="Views\客戶資料\更新一筆資料.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

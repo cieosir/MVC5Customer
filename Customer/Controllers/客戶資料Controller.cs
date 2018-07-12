@@ -68,6 +68,39 @@ namespace Customer.Controllers
             this.db.SaveChanges();
             return RedirectToAction("Index2");
         }
+        //public ActionResult 更新一筆資料(int id)
+        //{
+        //    var data = db.客戶資料.Find(id);
+        //    return View(data);
+        //}
+        public ActionResult 更新一筆資料(int id ,客戶資料類別 data)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(data);
+            }
+            var one = db.客戶資料.Find(id);
+            one.客戶名稱 = data.客戶名稱;
+            one.統一編號 = data.統一編號;
+            one.電話 = data.電話;
+            one.傳真 = data.傳真;
+            one.地址 = data.地址;
+            one.Email = data.Email;
+            db.SaveChanges();
+            return RedirectToAction("Index2");
+        }
+        public ActionResult 刪除一筆資料(int Id)
+
+        {
+            var item = db.客戶資料.Find(Id);
+            if (item==null)
+            {
+                return HttpNotFound();
+            }
+            db.客戶資料.Remove(item);
+            db.SaveChanges();
+            return RedirectToAction("Index2");
+        }
         public ActionResult Search()
         {
             var data = db.客戶資料
