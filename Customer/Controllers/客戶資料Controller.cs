@@ -10,11 +10,18 @@ using Customer.Models;
 
 namespace Customer.Controllers
 {
-    public class 客戶資料Controller : Controller
+    public class 客戶資料Controller : BaseController
     {
-        private 客戶資料管理Entities db = new 客戶資料管理Entities();
+        //private 客戶資料管理Entities db = new 客戶資料管理Entities();
+        客戶資料Repository repo;
+        public 客戶資料Controller()
+        {
+            repo = RepositoryHelper.Get客戶資料Repository();
+          
+        }
 
         // GET: 客戶資料
+        [Route("")]
         public ActionResult Index()
         {
             var data = db.客戶資料
@@ -101,6 +108,7 @@ namespace Customer.Controllers
             db.SaveChanges();
             return RedirectToAction("Index2");
         }
+        [Route(" 搜尋")]
         public ActionResult 搜尋(string keyword)
         {
             var 客戶資料 = db.客戶資料.AsQueryable();
@@ -111,8 +119,9 @@ namespace Customer.Controllers
             return View("Index", 客戶資料);
 
         }
-       
+
         // GET: 客戶資料/Details/5
+        [Route("{id}")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -138,6 +147,7 @@ namespace Customer.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("edit/{id}")]
         public ActionResult Create([Bind(Include = "Id,客戶名稱,統一編號,電話,傳真,地址,Email")] 客戶資料 客戶資料)
         {
             if (ModelState.IsValid)
@@ -182,6 +192,7 @@ namespace Customer.Controllers
         }
 
         // GET: 客戶資料/Delete/5
+        [Route("delete/{id}")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -199,6 +210,7 @@ namespace Customer.Controllers
         // POST: 客戶資料/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Route("delete/{id}")]
         public ActionResult DeleteConfirmed(int id)
         {
             客戶資料 客戶資料 = db.客戶資料.Find(id);
