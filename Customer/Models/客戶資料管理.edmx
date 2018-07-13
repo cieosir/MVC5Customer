@@ -17,6 +17,7 @@
           <Property Name="地址" Type="nvarchar" MaxLength="100" />
           <Property Name="Email" Type="nvarchar" MaxLength="250" />
           <Property Name="身分證字號" Type="char" MaxLength="10" />
+          <Property Name="已刪除" Type="bit" />
         </EntityType>
         <EntityType Name="客戶銀行資訊">
           <Key>
@@ -43,6 +44,7 @@
           <Property Name="電話" Type="nvarchar" MaxLength="50" />
           <Property Name="身分證字號" Type="char" MaxLength="10" />
           <Property Name="生日" Type="date" />
+          <Property Name="已刪除" Type="bit" />
         </EntityType>
         <Association Name="FK_客戶銀行資訊_客戶資料">
           <End Role="客戶資料" Type="Self.客戶資料" Multiplicity="1" />
@@ -99,6 +101,7 @@
           <NavigationProperty Name="客戶銀行資訊" Relationship="Self.FK_客戶銀行資訊_客戶資料" FromRole="客戶資料" ToRole="客戶銀行資訊" />
           <NavigationProperty Name="客戶聯絡人" Relationship="Self.FK_客戶聯絡人_客戶資料" FromRole="客戶資料" ToRole="客戶聯絡人" />
           <Property Name="身分證字號" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="已刪除" Type="Boolean" />
         </EntityType>
         <EntityType Name="客戶銀行資訊">
           <Key>
@@ -127,6 +130,7 @@
           <NavigationProperty Name="客戶資料" Relationship="Self.FK_客戶聯絡人_客戶資料" FromRole="客戶聯絡人" ToRole="客戶資料" />
           <Property Name="身分證字號" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
           <Property Name="生日" Type="DateTime" Precision="0" />
+          <Property Name="已刪除" Type="Boolean" />
         </EntityType>
         <Association Name="FK_客戶銀行資訊_客戶資料">
           <End Role="客戶資料" Type="Self.客戶資料" Multiplicity="1" />
@@ -174,6 +178,7 @@
           <EntitySetMapping Name="客戶資料">
             <EntityTypeMapping TypeName="客戶資料管理.客戶資料">
               <MappingFragment StoreEntitySet="客戶資料">
+                <ScalarProperty Name="已刪除" ColumnName="已刪除" />
                 <ScalarProperty Name="身分證字號" ColumnName="身分證字號" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="客戶名稱" ColumnName="客戶名稱" />
@@ -201,6 +206,7 @@
           <EntitySetMapping Name="客戶聯絡人">
             <EntityTypeMapping TypeName="客戶資料管理.客戶聯絡人">
               <MappingFragment StoreEntitySet="客戶聯絡人">
+                <ScalarProperty Name="已刪除" ColumnName="已刪除" />
                 <ScalarProperty Name="生日" ColumnName="生日" />
                 <ScalarProperty Name="身分證字號" ColumnName="身分證字號" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
