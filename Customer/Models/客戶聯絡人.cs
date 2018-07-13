@@ -21,6 +21,8 @@ namespace Customer.Models
         public string Email { get; set; }
         public string 手機 { get; set; }
         public string 電話 { get; set; }
+        public string 身分證字號 { get; set; }
+        public Nullable<System.DateTime> 生日 { get; set; }
     
         public virtual 客戶資料 客戶資料 { get; set; }
     }

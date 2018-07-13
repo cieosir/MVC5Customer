@@ -54,7 +54,7 @@ namespace Customer.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,客戶Id,職稱,姓名,Email,手機,電話")] 客戶聯絡人 客戶聯絡人)
+        public ActionResult Create([Bind(Include = "Id,客戶Id,職稱,姓名,Email,手機,電話,身分證字號")] 客戶聯絡人 客戶聯絡人)
         {
             if (ModelState.IsValid)
             {

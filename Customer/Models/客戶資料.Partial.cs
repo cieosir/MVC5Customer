@@ -5,6 +5,17 @@ namespace Customer.Models
     using System.ComponentModel.DataAnnotations;
     
     [MetadataType(typeof(客戶資料MetaData))]
+    public partial class 客戶資料 : IValidatableObject
+    {
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            if (this.Id == 0)
+            {
+                // 通常 P.K. 為 0 代表著正在執行「新增」動作
+            }
+            yield return new ValidationResult("經緯度欄位必須一起設定", new string[] { "Longitude", "Latitude" });
+        }
+    }
     public partial class 客戶資料
     {
     }

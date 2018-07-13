@@ -101,15 +101,17 @@ namespace Customer.Controllers
             db.SaveChanges();
             return RedirectToAction("Index2");
         }
-        public ActionResult Search()
+        public ActionResult 搜尋(string keyword)
         {
-            var data = db.客戶資料
-                .Take(3)
-                .ToList();
-            return Search();
+            var 客戶資料 = db.客戶資料.AsQueryable();
+            if (!string.IsNullOrEmpty(keyword))
+            {
+                客戶資料 = 客戶資料.Where(p => p.客戶名稱.Contains(keyword));
+            }
+            return View("Index", 客戶資料);
 
         }
-
+       
         // GET: 客戶資料/Details/5
         public ActionResult Details(int? id)
         {

@@ -162,6 +162,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EFGeneratePartialClass.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\InputValidations\身分證字號Attribute.cs" />
     <Compile Include="Models\客戶聯絡人.cs">
       <DependentUpon>客戶資料管理.tt</DependentUpon>
     </Compile>
@@ -276,6 +277,7 @@
     <Content Include="Views\客戶資料\Index2.cshtml" />
     <Content Include="Views\客戶資料\新增一筆資料.cshtml" />
     <Content Include="Views\客戶資料\更新一筆資料.cshtml" />
+    <Content Include="Views\客戶資料\搜尋.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
