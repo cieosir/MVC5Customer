@@ -310,10 +310,11 @@
     <Content Include="Views\客戶資料\新增一筆資料.cshtml" />
     <Content Include="Views\客戶資料\更新一筆資料.cshtml" />
     <Content Include="Views\客戶資料\搜尋.cshtml" />
+    <Content Include="Views\ARC\ViewTest.cshtml" />
+    <Content Include="Views\ARC\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\ARC\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
