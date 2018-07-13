@@ -10,7 +10,7 @@ using Customer.Models;
 
 namespace Customer.Controllers
 {
-    public class 客戶聯絡人Controller : Controller
+    public class 客戶聯絡人Controller : BaseController
     {
         private 客戶資料管理Entities db = new 客戶資料管理Entities();
 
