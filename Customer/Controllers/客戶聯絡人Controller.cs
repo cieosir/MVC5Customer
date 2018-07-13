@@ -26,6 +26,16 @@ namespace Customer.Controllers
             //var 客戶聯絡人 = db.客戶聯絡人.Include(客 => 客.客戶資料);
             return View(data);
         }
+        public ActionResult 搜尋(string keyword)
+        {
+            var 客戶聯絡人 = db.客戶聯絡人.AsQueryable();
+            if (!string.IsNullOrEmpty(keyword))
+            {
+                客戶聯絡人 = 客戶聯絡人.Where(p => p.姓名.Contains(keyword));
+            }
+            return View("Index", 客戶聯絡人);
+
+        }
 
         // GET: 客戶聯絡人/Details/5
         public ActionResult Details(int? id)

@@ -312,6 +312,8 @@
     <Content Include="Views\客戶資料\搜尋.cshtml" />
     <Content Include="Views\ARC\ViewTest.cshtml" />
     <Content Include="Views\ARC\Index.cshtml" />
+    <Content Include="Views\客戶銀行資訊\搜尋.cshtml" />
+    <Content Include="Views\客戶聯絡人\搜尋.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

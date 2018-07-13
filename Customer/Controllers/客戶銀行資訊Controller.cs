@@ -25,6 +25,16 @@ namespace Customer.Controllers
            
             return View(data);
         }
+        public ActionResult 搜尋(string keyword)
+        {
+            var   客戶銀行資訊 = db.客戶銀行資訊.AsQueryable();
+            if (!string.IsNullOrEmpty(keyword))
+            {
+                客戶銀行資訊 = 客戶銀行資訊.Where(p => p.銀行名稱.Contains(keyword));
+            }
+            return View("Index", 客戶銀行資訊);
+
+        }
 
         // GET: 客戶銀行資訊/Details/5
         public ActionResult Details(int? id)
